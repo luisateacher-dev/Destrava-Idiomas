@@ -1,0 +1,6 @@
+{
+  "name": "Método Destrava Idiomas",
+  "description": "Página de vendas e área de membros para o Método Destrava Idiomas, incluindo livro digital, áudio-livro e plano de 7 dias.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
