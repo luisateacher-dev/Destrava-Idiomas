@@ -195,13 +195,15 @@ export default function App() {
           </p>
 
           <div className="pt-4 flex flex-col items-center gap-3">
-            <button
+            <a
               id="hero-checkout-trigger"
-              onClick={() => setCheckoutOpen(true)}
-              className="bg-gradient-to-r from-amber-500 to-[#e6a13c] hover:from-amber-600 hover:to-amber-500 text-slate-950 font-black py-4 px-8 rounded-xl shadow-lg hover:shadow-xl text-sm sm:text-base flex items-center gap-2.5 transition-all hover:scale-[1.02] cursor-pointer"
+              href="https://pay.hotmart.com/I105924235J?bid=1779378754025"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="bg-gradient-to-r from-amber-500 to-[#e6a13c] hover:from-amber-600 hover:to-amber-500 text-slate-950 font-black py-4 px-8 rounded-xl shadow-lg hover:shadow-xl text-sm sm:text-base flex items-center justify-center gap-2.5 transition-all hover:scale-[1.02] cursor-pointer no-underline"
             >
               <span>Quero o livro + áudio-livro →</span>
-            </button>
+            </a>
             <button 
               id="hero-understand-trigger"
               onClick={() => scrollToSection("situations-segment")}
@@ -569,14 +571,16 @@ export default function App() {
                   <span className="text-xs text-slate-400 font-serif lowercase mt-1 block">pagamento único • acesso vitalício imediato</span>
                 </div>
 
-                <button
+                <a
                   id="offer-cta-checkout"
-                  onClick={() => setCheckoutOpen(true)}
-                  className="w-full mt-6 bg-gradient-to-r from-amber-500 to-[#e6a13c] hover:from-amber-600 hover:to-amber-500 text-slate-950 font-black py-4 px-6 rounded-xl text-center flex items-center justify-center gap-2 hover:shadow-lg transition-transform hover:scale-[1.01] cursor-pointer"
+                  href="https://pay.hotmart.com/I105924235J?bid=1779378754025"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-full mt-6 bg-gradient-to-r from-amber-500 to-[#e6a13c] hover:from-amber-600 hover:to-amber-500 text-slate-950 font-black py-4 px-6 rounded-xl text-center flex items-center justify-center gap-2 hover:shadow-lg transition-transform hover:scale-[1.01] cursor-pointer no-underline"
                 >
                   <span>Mecanização Imediata — Quero o livro</span>
                   <ArrowRight className="w-4 h-4" />
-                </button>
+                </a>
 
                 <p className="text-[10px] text-slate-500 uppercase font-mono mt-3 tracking-widest leading-none">
                   PIX • Cartão de Crédito • Boleto Bancário
@@ -668,13 +672,15 @@ export default function App() {
             Agora você tem as técnicas exatas de improviso. Comece hoje mesmo investindo apenas 15 minutos em sua primeira prática ativa dirigida.
           </p>
 
-          <button
+          <a
             id="bottom-checkout-trigger"
-            onClick={() => setCheckoutOpen(true)}
-            className="mt-6 bg-gradient-to-r from-amber-500 to-[#e6a13c] hover:from-amber-600 hover:to-amber-500 text-slate-950 font-black py-4 px-8 rounded-xl text-center inline-flex items-center gap-2 hover:shadow-lg transition-transform hover:scale-[1.01] cursor-pointer text-sm sm:text-base"
+            href="https://pay.hotmart.com/I105924235J?bid=1779378754025"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="mt-6 bg-gradient-to-r from-amber-500 to-[#e6a13c] hover:from-amber-600 hover:to-amber-500 text-slate-950 font-black py-4 px-8 rounded-xl text-center inline-flex items-center justify-center gap-2 hover:shadow-lg transition-transform hover:scale-[1.01] cursor-pointer text-sm sm:text-base no-underline"
           >
             <span>Quero destravar meu idioma agora por R$37 →</span>
-          </button>
+          </a>
         </div>
       </section>
 
@@ -711,14 +717,16 @@ export default function App() {
               </div>
             </div>
 
-            <button
+            <a
               id="sticky-bar-checkout-trigger"
-              onClick={() => setCheckoutOpen(true)}
-              className="bg-gradient-to-r from-amber-500 to-[#e6a13c] hover:from-amber-600 hover:to-amber-500 text-slate-950 font-extrabold px-4 sm:px-6 py-2 sm:py-2.5 rounded-lg text-xs tracking-tight shrink-0 flex items-center gap-1.5 transition-all outline-none"
+              href="https://pay.hotmart.com/I105924235J?bid=1779378754025"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="bg-gradient-to-r from-amber-500 to-[#e6a13c] hover:from-amber-600 hover:to-amber-500 text-slate-950 font-extrabold px-4 sm:px-6 py-2 sm:py-2.5 rounded-lg text-xs tracking-tight shrink-0 flex items-center justify-center gap-1.5 transition-all outline-none no-underline"
             >
               <span>Quero Comprar</span>
               <ArrowRight className="w-3.5 h-3.5" />
-            </button>
+            </a>
           </motion.div>
         )}
       </AnimatePresence>
