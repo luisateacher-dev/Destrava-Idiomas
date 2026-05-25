@@ -189,13 +189,6 @@ export default function App() {
             >
               <span>Quero o livro + áudio-livro →</span>
             </a>
-            <button 
-              id="hero-understand-trigger"
-              onClick={() => scrollToSection("situations-segment")}
-              className="text-xs sm:text-sm text-slate-400 hover:text-white underline underline-offset-4 font-mono uppercase tracking-widest mt-1"
-            >
-              Entender primeiro
-            </button>
           </div>
 
           {/* Core high-level specs list */}
