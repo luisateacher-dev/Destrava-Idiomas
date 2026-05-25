@@ -142,30 +142,15 @@ export default function App() {
           </nav>
 
           <div className="flex items-center gap-3">
-            {isPurchased ? (
-              <button
-                id="header-member-portal-btn"
-                onClick={() => setViewingPortal(true)}
-                className="bg-green-600 hover:bg-green-700 text-white font-bold py-1.5 sm:py-2 px-3 sm:px-4 rounded-xl text-xs flex items-center gap-1.5 transition-all outline-none animate-pulse hover:scale-[1.02] cursor-pointer"
-              >
-                <UserCheck className="w-3.5 h-3.5" />
-                <span>Entrar no Portal</span>
-              </button>
-            ) : (
-              <button
-                id="header-free-members-access"
-                onClick={() => {
-                  setIsPurchased(true);
-                  setViewingPortal(true);
-                }}
-                className="bg-white/10 hover:bg-white/20 text-slate-100 border border-white/20 font-medium py-1.5 sm:py-2 px-3 sm:px-4 rounded-xl text-xs flex items-center gap-1.5 transition-all outline-none"
-                title="Burlar compra para verificar Área do Aluno"
-              >
-                <Lock className="w-3.5 h-3.5 text-amber-400" />
-                <span className="hidden sm:inline">Acesso Aluno (Testes)</span>
-                <span className="inline sm:hidden">Entrar</span>
-              </button>
-            )}
+            <a
+              id="header-cta-hotmart"
+              href="https://pay.hotmart.com/I105924235J?bid=1779378754025"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="bg-gradient-to-r from-amber-500 to-[#e6a13c] hover:from-amber-600 hover:to-amber-500 text-slate-950 font-extrabold py-2 px-4 rounded-xl text-xs flex items-center gap-1.5 transition-all outline-none hover:scale-[1.02] cursor-pointer no-underline"
+            >
+              <span>Quero Destravar</span>
+            </a>
           </div>
         </div>
       </header>
