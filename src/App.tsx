@@ -20,6 +20,19 @@ import {
 import CheckoutModal from "./components/CheckoutModal";
 import MembersArea from "./components/MembersArea";
 
+declare global {
+  interface Window {
+    fbq: any;
+    _fbq: any;
+  }
+  interface ImportMeta {
+    readonly env: {
+      readonly VITE_META_PIXEL_ID?: string;
+      [key: string]: any;
+    };
+  }
+}
+
 export default function App() {
   const [checkoutOpen, setCheckoutOpen] = useState(false);
   const [isPurchased, setIsPurchased] = useState(() => {
@@ -33,6 +46,50 @@ export default function App() {
   
   // Limited time discount timer
   const [timeLeft, setTimeLeft] = useState(1140); // 19 minutes
+
+  // Meta Ads Pixel integration
+  useEffect(() => {
+    const pixelId = import.meta.env.VITE_META_PIXEL_ID || "298114144598253";
+    if (!pixelId) {
+      console.warn("Meta Ads Pixel ID not set. Define VITE_META_PIXEL_ID in your environment to enable tracking.");
+      return;
+    }
+
+    // Initialize Meta Pixel Script
+    (function(f: any, b: Document, e: string, v: string, n?: any, t?: any, s?: any) {
+      if (f.fbq) return;
+      n = f.fbq = function() {
+        n.callMethod ? n.callMethod.apply(n, arguments) : n.queue.push(arguments);
+      };
+      if (!f._fbq) f._fbq = n;
+      n.push = n;
+      n.loaded = true;
+      n.version = '2.0';
+      n.queue = [];
+      t = b.createElement(e);
+      t.async = true;
+      t.src = v;
+      s = b.getElementsByTagName(e)[0];
+      if (s && s.parentNode) {
+        s.parentNode.insertBefore(t, s);
+      } else {
+        b.head?.appendChild(t);
+      }
+    })(window, document, 'script', 'https://connect.facebook.net/en_US/fbevents.js');
+
+    window.fbq('init', pixelId);
+    window.fbq('track', 'PageView');
+  }, []);
+
+  const trackPixelEvent = (eventName: string, params?: Record<string, any>) => {
+    if (window.fbq) {
+      try {
+        window.fbq('track', eventName, params);
+      } catch (err) {
+        console.error("Failed to track Meta event:", err);
+      }
+    }
+  };
 
   useEffect(() => {
     const timer = setInterval(() => {
@@ -147,6 +204,7 @@ export default function App() {
               href="https://pay.hotmart.com/I105924235J?bid=1779378754025"
               target="_blank"
               rel="noopener noreferrer"
+              onClick={() => trackPixelEvent('AddToCart', { value: 37.00, currency: 'BRL', content_name: 'Livro Destrave seu Idioma + Áudio-livro' })}
               className="bg-gradient-to-r from-amber-500 to-[#e6a13c] hover:from-amber-600 hover:to-amber-500 text-slate-950 font-extrabold py-2 px-4 rounded-xl text-xs flex items-center gap-1.5 transition-all outline-none hover:scale-[1.02] cursor-pointer no-underline"
             >
               <span>Quero Destravar</span>
@@ -185,6 +243,7 @@ export default function App() {
               href="https://pay.hotmart.com/I105924235J?bid=1779378754025"
               target="_blank"
               rel="noopener noreferrer"
+              onClick={() => trackPixelEvent('AddToCart', { value: 37.00, currency: 'BRL', content_name: 'Livro Destrave seu Idioma + Áudio-livro' })}
               className="bg-gradient-to-r from-amber-500 to-[#e6a13c] hover:from-amber-600 hover:to-amber-500 text-slate-950 font-black py-4 px-8 rounded-xl shadow-lg hover:shadow-xl text-sm sm:text-base flex items-center justify-center gap-2.5 transition-all hover:scale-[1.02] cursor-pointer no-underline"
             >
               <span>Quero o livro + áudio-livro →</span>
@@ -554,6 +613,7 @@ export default function App() {
                   href="https://pay.hotmart.com/I105924235J?bid=1779378754025"
                   target="_blank"
                   rel="noopener noreferrer"
+                  onClick={() => trackPixelEvent('AddToCart', { value: 37.00, currency: 'BRL', content_name: 'Livro Destrave seu Idioma + Áudio-livro' })}
                   className="w-full mt-6 bg-gradient-to-r from-amber-500 to-[#e6a13c] hover:from-amber-600 hover:to-amber-500 text-slate-950 font-black py-4 px-6 rounded-xl text-center flex items-center justify-center gap-2 hover:shadow-lg transition-transform hover:scale-[1.01] cursor-pointer no-underline"
                 >
                   <span>Mecanização Imediata — Quero o livro</span>
@@ -655,6 +715,7 @@ export default function App() {
             href="https://pay.hotmart.com/I105924235J?bid=1779378754025"
             target="_blank"
             rel="noopener noreferrer"
+            onClick={() => trackPixelEvent('AddToCart', { value: 37.00, currency: 'BRL', content_name: 'Livro Destrave seu Idioma + Áudio-livro' })}
             className="mt-6 bg-gradient-to-r from-amber-500 to-[#e6a13c] hover:from-amber-600 hover:to-amber-500 text-slate-950 font-black py-4 px-8 rounded-xl text-center inline-flex items-center justify-center gap-2 hover:shadow-lg transition-transform hover:scale-[1.01] cursor-pointer text-sm sm:text-base no-underline"
           >
             <span>Quero destravar meu idioma agora por R$37 →</span>
@@ -700,6 +761,7 @@ export default function App() {
               href="https://pay.hotmart.com/I105924235J?bid=1779378754025"
               target="_blank"
               rel="noopener noreferrer"
+              onClick={() => trackPixelEvent('AddToCart', { value: 37.00, currency: 'BRL', content_name: 'Livro Destrave seu Idioma + Áudio-livro' })}
               className="bg-gradient-to-r from-amber-500 to-[#e6a13c] hover:from-amber-600 hover:to-amber-500 text-slate-950 font-extrabold px-4 sm:px-6 py-2 sm:py-2.5 rounded-lg text-xs tracking-tight shrink-0 flex items-center justify-center gap-1.5 transition-all outline-none no-underline"
             >
               <span>Quero Comprar</span>
